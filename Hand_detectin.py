@@ -16,7 +16,7 @@ def cature_histogram(source):
         cv2.rectangle(frame, (500, 100), (580, 100), (105, 105, 105), 2)
         box = frame[105:175, 505:575]
 
-        cv2,imshow("capture Histogram", frame)
+        cv2.imshow("capture Histogram", frame)
         key = cv2.waitKey(10)
         if key == 97:
             object_color = box
@@ -28,7 +28,7 @@ def cature_histogram(source):
             break
         object_color_hsv = cv2.cvtColor(object_color, cv2.COLOR_BGR2HSV)
         object_hist = cv2.calcHist([object_color_hsv], [0, 1], None,
-                                   [12,15], [0, 180, 0, 256])
+                                   [12, 15], [0, 180, 0, 256])
 
         cv2.normalize(object_hist, object_hist, 0, 255, cv2.NORM_MINMAX)
         return object_hist
